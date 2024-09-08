@@ -1,4 +1,4 @@
-import os
+.import os
 from environs import Env
 
 env = Env()
@@ -23,7 +23,7 @@ DEBUG = True
 
 ROOT_URLCONF = 'project.urls'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = env.str("ALLOWED_HOSTS")
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
