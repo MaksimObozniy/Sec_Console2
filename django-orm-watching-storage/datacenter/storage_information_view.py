@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.utils.timezone import localtime
 from datacenter.models import Visit
 
-def definition_of_time(visit):
+def determine_the_time(visit):
     now = localtime()
     then = visit.entered_at
     delta = now - then
@@ -17,7 +17,7 @@ def storage_information_view(request):
         non_closed_visits.append({
             'who_entered': visit.passcard.owner_name,
             'entered_at': visit.entered_at,
-            'duration': definition_of_time(visit),
+            'duration': determine_the_time(visit),
         })
 
     context = {
