@@ -1,4 +1,4 @@
-.import os
+import os
 from environs import Env
 
 env = Env()
@@ -19,7 +19,7 @@ INSTALLED_APPS = ['datacenter']
 
 SECRET_KEY = env.str("SECRET_KEY")
 
-DEBUG = True
+DEBUG = env.bool("PROJECT_DEBUG")
 
 ROOT_URLCONF = 'project.urls'
 
